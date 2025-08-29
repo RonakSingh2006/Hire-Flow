@@ -1,4 +1,3 @@
-import ResumeUpload from "./components/ResumeUpload"
 import Form from "./components/Form"
 function App() {
   return <>
