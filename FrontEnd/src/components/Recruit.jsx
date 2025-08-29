@@ -12,7 +12,7 @@ function Recruit() {
   const handleFetch = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/data", {
+      const response = await fetch("http://localhost:8080/api/jd/uploadall", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -24,10 +24,28 @@ function Recruit() {
 
       if (!response.ok) {
         toast.error("Failed to fetch data");
+        return;
       }
 
       const data = await response.json();
-      setCandidates(data);
+      console.log("Raw API Response:", data);
+
+      // 🔑 Extract text where Gemini actually puts JSON
+      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+
+      // 🔑 Pull out JSON block between ```json ... ```
+      const match = text.match(/```json([\s\S]*?)```/);
+      const jsonString = match ? match[1].trim() : text;
+
+      let parsed = [];
+      try {
+        parsed = JSON.parse(jsonString);
+      } catch (err) {
+        console.error("Failed to parse candidate JSON:", err);
+        toast.error("Could not parse candidate data.");
+      }
+      console.log(parsed)
+      setCandidates(parsed);
     } catch (err) {
       console.error("Error:", err);
       toast.error("Failed to fetch candidates.");
@@ -97,12 +115,12 @@ function Recruit() {
             <ol className="list-group list-group-numbered">
               {candidates.map((c, idx) => (
                 <li
-                  key={c.resume_id || idx}
+                  key={c.resume_id || c.resumeId}
                   className="list-group-item d-flex justify-content-between align-items-center"
                 >
                   <div>
-                    <b>{c.name}</b>
-                    <div className="text-muted">Resume ID: {c.resume_id}</div>
+                    <b>{c.candidate_name || c.candidateName}</b>
+                    <div className="text-muted">Resume ID: {c.resume_id  || c.resumeId}</div>
                   </div>
                 </li>
               ))}
