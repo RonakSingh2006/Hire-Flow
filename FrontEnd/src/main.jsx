@@ -6,11 +6,15 @@ import {Toaster} from 'react-hot-toast'
 
 import App from './App.jsx'
 import ResumeUpload from './components/ResumeUpload.jsx';
+import Recruit from './components/Recruit.jsx';
 
 let router = createBrowserRouter([
   { 
     path : "/",
     element : <App/>
+  },{ 
+    path : "/admin",
+    element : <Recruit/>
   },
   {
     path : "/upload",

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./ResumeUpload.css"; 
 import toast from "react-hot-toast";
 
@@ -31,11 +30,13 @@ export default function ResumeUpload() {
       if (!res.ok) {
         toast.error("Failed to upload");
       }
-
-      const data = await res.json();
-      toast.success("Uploaded successfully!");
-      console.log("Server Response:", data);
+      else{
+        const data = await res.text();
+        toast.success("Uploaded successfully!");
+        console.log("Server Response:", data);
+      }
     } catch (error) {
+      
       toast.error("Upload failed",error);
     }
   };
@@ -47,7 +48,7 @@ export default function ResumeUpload() {
         className="resume-card p-4 shadow-lg rounded"
       >
         <h3 className="text-center mb-4 fw-bold text-primary">
-          🚀 Submit Your Resume
+          Submit Your Resume
         </h3>
 
         {/* Job ID Input */}

@@ -24,11 +24,14 @@
   border-radius: 8px;
   padding: 10px;
   transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .resume-btn:hover {
   background: linear-gradient(90deg, #0056b3, #0096c7);
   transform: scale(1.05);
+  color: white; /* keep text white on hover */
 }
 
 /* Smooth input focus */
