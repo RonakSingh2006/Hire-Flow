@@ -5,20 +5,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Toaster} from 'react-hot-toast'
 
 import App from './App.jsx'
-import ResumeUpload from './components/ResumeUpload.jsx';
-import Recruit from './components/Recruit.jsx';
+import Jobs from './components/Jobs.jsx';
+import AdminDashboard from './components/AdminDashBoard.jsx';
 
 let router = createBrowserRouter([
   { 
     path : "/",
     element : <App/>
   },{ 
-    path : "/admin",
-    element : <Recruit/>
+    path : "/recruiter",
+    element : <AdminDashboard/>
   },
   {
-    path : "/upload",
-    element : <ResumeUpload/>
+    path : "/user",
+    element : <Jobs/>
   },
   {
     path : "*",

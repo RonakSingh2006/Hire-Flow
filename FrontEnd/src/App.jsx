@@ -1,7 +1,7 @@
-import Form from "./components/Form"
+import LandingPage from "./components/LandingPage"
 function App() {
   return <>
-    <Form></Form>
+    <LandingPage/>
   </>
 }
 

@@ -44,7 +44,7 @@ function Recruit() {
         console.error("Failed to parse candidate JSON:", err);
         toast.error("Could not parse candidate data.");
       }
-      console.log(parsed)
+      console.log(parsed);
       setCandidates(parsed);
     } catch (err) {
       console.error("Error:", err);
@@ -92,7 +92,7 @@ function Recruit() {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Filters (comma separated)</label>
+          <label className="form-label">Filters</label>
           <input
             type="text"
             className="form-control"
@@ -120,7 +120,9 @@ function Recruit() {
                 >
                   <div>
                     <b>{c.candidate_name || c.candidateName}</b>
-                    <div className="text-muted">Resume ID: {c.resume_id  || c.resumeId}</div>
+                    <div className="text-muted">
+                      Resume ID: {c.resume_id || c.resumeId}
+                    </div>
                   </div>
                 </li>
               ))}

@@ -1,0 +1,54 @@
+/* src/components/LandingPage.css */
+
+.main-bg {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: sans-serif;
+}
+
+.project-title {
+  font-size: 8rem;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.buttons-container {
+  display: flex;
+  gap: 30px;
+}
+
+.user-btn,
+.recruiter-btn {
+  padding: 15px 40px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.user-btn {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+.recruiter-btn {
+  background-color: #0d47a1;
+  color: #e3f2fd;
+}
+
+.user-btn:hover,
+.recruiter-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}

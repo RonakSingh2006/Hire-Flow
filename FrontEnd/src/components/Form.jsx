@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Form.css"
+import "./Form.css";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -17,10 +17,40 @@ const Form = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Job Posted:", formData);
-    alert("Job Posted Successfully ✅");
+
+    try {
+      const response = await fetch("http://localhost:8080/api/jd/postjob", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Job Posted Successfully ✅");
+        // Optional: Clear the form after a successful submission
+        setFormData({
+          companyName: "",
+          jobId: "",
+          jobTitle: "",
+          responsibilities: "",
+          experience: "",
+          skills: "",
+          summary: "",
+        });
+      } else {
+        const errorData = await response.json();
+        alert(
+          `Failed to post job: ${errorData.message || response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Error posting job:", error);
+      alert("An error occurred. Please try again later.");
+    }
   };
 
   return (
