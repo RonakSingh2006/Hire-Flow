@@ -113,7 +113,7 @@ function Recruit() {
           <div className="mt-4">
             <h3 className="text-center">Candidate List</h3>
             <ol className="list-group list-group-numbered">
-              {candidates.map((c, idx) => (
+              {candidates.map((c) => (
                 <li
                   key={c.resume_id || c.resumeId}
                   className="list-group-item d-flex justify-content-between align-items-center"
