@@ -22,7 +22,7 @@ export default function ResumeUpload() {
       formData.append("jobId", jobId);
 
 
-      const res = await fetch("/api/resume/upload", {
+      const res = await fetch("http://localhost:8080/api/resume/upload", {
         method: "POST",
         body: formData,
       });
