@@ -1,8 +1,7 @@
-import ResumeUpload from "./components/ResumeUpload"
-import Jobs from "./components/Jobs"
+import Form from "./components/Form"
 function App() {
   return <>
-    <Jobs/>
+    <Form></Form>
   </>
 }
 
