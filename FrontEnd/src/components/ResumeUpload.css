@@ -1,0 +1,38 @@
+/* Background with gradient */
+.resume-bg {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Card styling */
+.resume-card {
+  width: 400px;
+  background: #ffffff;
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Button styling */
+.resume-btn {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.resume-btn:hover {
+  background: linear-gradient(90deg, #0056b3, #0096c7);
+  transform: scale(1.05);
+}
+
+/* Smooth input focus */
+.form-control:focus {
+  border-color: #00c6ff;
+  box-shadow: 0 0 5px rgba(0, 198, 255, 0.6);
+}
