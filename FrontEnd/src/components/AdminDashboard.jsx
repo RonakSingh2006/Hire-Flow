@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./AdminDashboard.css";
-import Recruit from "./Recruit"
-import Form from "./Form"
-
+import Recruit from "./Recruit";
+import Form from "./Form";
+import ResumeUploadAdmin from "./ResumeUploadAdmin";
 
 const AdminDashboard = () => {
   const [view, setView] = useState("resumeScreening");
@@ -23,13 +23,21 @@ const AdminDashboard = () => {
           >
             Post a Job
           </button>
+          <button
+            className={`nav-item ${view === "resumeUpload" ? "active" : ""}`}
+            onClick={() => setView("resumeUpload")}
+          >
+            Resume Upload
+          </button>
         </div>
       </nav>
-        {view === "resumeScreening" ? (
-            <Recruit/>
-          ) : (
-            <Form/>
-          )}
+      {view === "resumeScreening" ? (
+        <Recruit />
+      ) : view === "postJob" ? (
+        <Form />
+      ) : (
+        <ResumeUploadAdmin />
+      )}
     </div>
   );
 };
