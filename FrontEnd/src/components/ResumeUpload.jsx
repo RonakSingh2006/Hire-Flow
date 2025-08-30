@@ -2,9 +2,8 @@ import { useState } from "react";
 import "./ResumeUpload.css"; 
 import toast from "react-hot-toast";
 
-export default function ResumeUpload() {
+export default function ResumeUpload({jobId}) {
   const [file, setFile] = useState("");
-  const [jobId, setJobId] = useState("");
 
   const handleFileChange = (e) => setFile(e.target.files[0]);
 
@@ -42,8 +41,7 @@ export default function ResumeUpload() {
   };
 
   return (
-    <div className="resume-bg d-flex justify-content-center align-items-center vh-100">
-      <form
+    <form
         onSubmit={handleSubmit}
         className="resume-card p-4 shadow-lg rounded"
       >
@@ -51,17 +49,6 @@ export default function ResumeUpload() {
           Submit Your Resume
         </h3>
 
-        {/* Job ID Input */}
-        <div className="mb-3">
-          <label className="form-label fw-semibold">Job ID</label>
-          <input
-            type="text"
-            className="form-control"
-            value={jobId}
-            onChange={(e) => setJobId(e.target.value)}
-            placeholder="Enter Job ID"
-          />
-        </div>
 
         {/* Resume File Input */}
         <div className="mb-3">
@@ -84,6 +71,5 @@ export default function ResumeUpload() {
           Submit
         </button>
       </form>
-    </div>
   );
 }

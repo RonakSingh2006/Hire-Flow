@@ -10,6 +10,7 @@ const Form = () => {
     experience: "",
     skills: "",
     summary: "",
+    jobLocation: "",   // ✅ Added location field
   });
 
   const handleChange = (e) => {
@@ -31,7 +32,7 @@ const Form = () => {
 
       if (response.ok) {
         alert("Job Posted Successfully ✅");
-        // Optional: Clear the form after a successful submission
+        // Clear form after submission
         setFormData({
           companyName: "",
           jobId: "",
@@ -40,6 +41,7 @@ const Form = () => {
           experience: "",
           skills: "",
           summary: "",
+         jobLocation: "", // reset location too
         });
       } else {
         const errorData = await response.json();
@@ -127,6 +129,17 @@ const Form = () => {
             value={formData.summary}
             onChange={handleChange}
             placeholder="Brief role description..."
+            required
+          />
+
+          {/* ✅ New Location field */}
+          <label>Location</label>
+          <input
+            type="text"
+            name="jobLocation"
+            className="form-control"
+            value={formData.jobLocation}
+            onChange={handleChange}
             required
           />
 

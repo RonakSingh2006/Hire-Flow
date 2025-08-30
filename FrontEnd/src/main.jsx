@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Toaster} from 'react-hot-toast'
+import User from './components/User.jsx';
 
 import App from './App.jsx'
 import Jobs from './components/Jobs.jsx';
@@ -19,6 +20,10 @@ let router = createBrowserRouter([
   {
     path : "/user",
     element : <Jobs/>
+  },
+  {
+    path : "/userComp/:jobId",
+    element : <User/>
   },
   {
     path : "*",

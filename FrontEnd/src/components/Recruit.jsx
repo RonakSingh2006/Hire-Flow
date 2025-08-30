@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 
 function Recruit() {
   const [jobId, setJobId] = useState("");
-  const [jobDescription, setJobDescription] = useState("");
   const [filters, setFilters] = useState("");
   const [candidates, setCandidates] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -17,7 +16,6 @@ function Recruit() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           jobId,
-          jobDescription,
           filters,
         }),
       });
@@ -78,16 +76,6 @@ function Recruit() {
             className="form-control"
             value={jobId}
             onChange={(e) => setJobId(e.target.value)}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label className="form-label">Job Description</label>
-          <textarea
-            className="form-control"
-            value={jobDescription}
-            onChange={(e) => setJobDescription(e.target.value)}
-            rows={4}
           />
         </div>
 
