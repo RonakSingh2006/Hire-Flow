@@ -23,13 +23,11 @@
   box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.18);
 }
 
-/* Heading styling */
-.resume-heading {
-  font-size: 26px;
-  font-weight: 700;
+.heading{
+  color :  #007bff;
   text-align: center;
-  margin-bottom: 25px;
-  color: #007bff;
+  font-weight: bold ;
+  
 }
 
 /* Job item */
@@ -90,4 +88,11 @@
 
 .no-jobs-message {
   color: #777;
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
 }
