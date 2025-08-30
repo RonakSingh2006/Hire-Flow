@@ -15,7 +15,7 @@ const AdminDashboard = () => {
             className={`nav-item ${view === "resumeScreening" ? "active" : ""}`}
             onClick={() => setView("resumeScreening")}
           >
-            Job Screening
+            Resume Screening
           </button>
           <button
             className={`nav-item ${view === "postJob" ? "active" : ""}`}
